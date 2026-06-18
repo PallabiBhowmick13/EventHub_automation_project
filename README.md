@@ -38,7 +38,7 @@ This project demonstrates real-world QA Automation practices including:
 ## 📂 Project Structure
 
 ```
-EVENTHUBAUTOMATION
+EventHubAutomation
 │
 ├── pages
 │   ├── login_page.py
