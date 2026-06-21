@@ -2,111 +2,132 @@
 
 ## 📌 Project Overview
 
-This project is a Selenium WebDriver automation framework built using **Python** and the **Page Object Model (POM)** design pattern.
+This project is a Selenium WebDriver Automation Framework built using Python and the Page Object Model (POM) design pattern.
 
-The framework automates the following user flow:
+The framework automates the following user journey:
 
-* Open EventHub application
+* Launch EventHub application
 * Login with valid credentials
 * Navigate to the Events page
-* Verify the Events page URL
+* Verify Events page URL
 * Validate Events page content
-
-This project demonstrates real-world QA Automation practices including:
-
-* Page Object Model (POM)
-* Selenium WebDriver
-* Explicit Waits
-* Assertions
-* Test Flow Automation
+* Capture screenshots during execution
+* Generate execution logs
+* Generate HTML test reports using PyTest
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Features
 
-| Technology         | Purpose                   |
-| ------------------ | ------------------------- |
-| Python             | Programming Language      |
-| Selenium WebDriver | Web UI Automation         |
-| PyTest             | Test Execution Framework  |
-| WebDriver Manager  | Browser Driver Management |
-| Chrome Browser     | Test Execution            |
-| Git & GitHub       | Version Control           |
+* Selenium WebDriver Automation
+* Python-based Test Framework
+* Page Object Model (POM)
+* Explicit Waits
+* Logging Framework
+* Screenshot Capture
+* PyTest Integration
+* HTML Reporting (pytest-html)
+* Automatic Browser Setup using WebDriver Manager
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology         | Purpose                  |
+| ------------------ | ------------------------ |
+| Python             | Programming Language     |
+| Selenium WebDriver | Web Automation           |
+| PyTest             | Test Execution Framework |
+| PyTest HTML        | HTML Reporting           |
+| WebDriver Manager  | Driver Management        |
+| Logging            | Execution Logs           |
+| Git & GitHub       | Version Control          |
 
 ---
 
 ## 📂 Project Structure
 
-```
+```text
 EventHubAutomation
 │
 ├── pages
 │   ├── login_page.py
-│   └── event_page.py
+│   ├── event_page.py
+│   └── __init__.py
 │
-├── test_pages.py
+├── tests
+│   └── test_pages1.py
 │
+├── utilities
+│   ├── logger.py
+│   └── __init__.py
+│
+├── screenshots
+│   ├── login_success.png
+│   └── event_page.png
+│
+├── reports
+│   └── report.html
+│
+├── logs
+│   └── automation.log
+│
+├── conftest.py
 ├── requirements.txt
-│
 └── README.md
 ```
 
 ---
 
-## 📄 Page Object Model Design
+## 📄 Test Scenario
 
-### Login Page
+### Login Validation
 
-Contains:
+* Open EventHub application
+* Enter valid username
+* Enter valid password
+* Click Login button
+* Verify successful login
+* Capture login success screenshot
 
-* Username field
-* Password field
-* Login button
-* Login functionality
+### Event Page Validation
 
-### Event Page
-
-Contains:
-
-* Events navigation tab
-* Event page verification
-* Page text validation
-
----
-
-## ⚙️ Installation & Setup
-
-### 1. Clone Repository
-
-```bash
-git clone <your-github-repository-url>
-```
-
-Navigate into the project folder:
-
-```bash
-cd Selenium-Python-Automation
-```
+* Click Events tab
+* Verify Event page URL
+* Verify Event page text
+* Capture Event page screenshot
 
 ---
 
-### 2. Create Virtual Environment
+## ⚙️ Installation
+
+### Clone Repository
 
 ```bash
-python -m venv venv
+git clone https://github.com/PallabiBhowmick13/<repository-name>.git
 ```
 
-Activate the environment:
+### Navigate to Project
+
+```bash
+cd EventHubAutomation
+```
+
+### Create Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+### Activate Virtual Environment
 
 Windows:
 
 ```bash
-venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
----
-
-### 3. Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -114,97 +135,133 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run Test
+## ▶️ Execute Test
 
-Execute the test using:
+Run PyTest:
 
 ```bash
-python test_pages.py
+pytest tests/test_pages1.py
+```
+
+---
+
+## 📊 Generate HTML Report
+
+```bash
+pytest tests/test_pages1.py --html=reports/report.html --self-contained-html
+```
+
+Generated Report:
+
+```text
+reports/report.html
+```
+
+Open the report in your browser to view:
+
+* Passed Tests
+* Failed Tests
+* Execution Time
+* Error Details
+* Test Summary
+
+---
+
+## 📸 Screenshots
+
+Screenshots are automatically captured during execution.
+
+Example:
+
+```text
+screenshots/
+├── login_success.png
+└── event_page.png
+|__test_failur.png
+```
+
+---
+
+## 📝 Logs
+
+Execution logs are stored in:
+
+```text
+logs/automation.log
+```
+
+Sample Log Output:
+
+```text
+INFO - Starting Test Execution
+INFO - Login successful and Home page loaded
+INFO - Event URL Verified
+INFO - Event Page Text Verified
+INFO - EVENT TEST PASSED
 ```
 
 ---
 
 ## 🔄 Automation Flow
 
-```
+```text
 Launch Browser
-       |
-       ↓
+      |
+      ↓
 Open Login Page
-       |
-       ↓
-Enter Username
-       |
-       ↓
-Enter Password
-       |
-       ↓
-Click Login
-       |
-       ↓
-Navigate to Events
-       |
-       ↓
+      |
+      ↓
+Login with Valid Credentials
+      |
+      ↓
+Verify Home Page
+      |
+      ↓
+Click Events Tab
+      |
+      ↓
 Verify URL
-       |
-       ↓
+      |
+      ↓
 Verify Page Content
-       |
-       ↓
+      |
+      ↓
+Capture Screenshots
+      |
+      ↓
+Generate Logs & HTML Report
+      |
+      ↓
 Test Passed
 ```
 
 ---
 
-## ✅ Test Scenarios Covered
+## 🎯 Future Enhancements
 
-| Test Case                    | Status |
-| ---------------------------- | ------ |
-| Launch Application           | ✔      |
-| Login with valid credentials | ✔      |
-| Navigate to Events page      | ✔      |
-| Verify Event URL             | ✔      |
-| Verify Event page text       | ✔      |
-
----
-
-## 📸 Test Execution Output
-
-Example:
-
-```
-Login Test Passed
-
-Event URL Verified
-
-Event Page Text Verified
-
-EVENT TEST PASSED
-```
-
----
-
-## 🚀 Future Enhancements
-
-* Add PyTest fixtures
-* Add HTML test reports
-* Add screenshots on failure
-* Add logging framework
-* Add CI/CD pipeline using GitHub Actions or Jenkins
-* Add Data-Driven Testing
+* Data Driven Testing
+* Cross Browser Testing
+* Jenkins CI/CD Integration
+* Allure Reporting
+* Parallel Test Execution
+* API Testing Integration
 
 ---
 
 ## 👩‍💻 Author
 
-**Pallabi**
+**Pallabi Bhowmick**
 
 QA Automation Engineer
 
 ### Skills
 
-* Selenium Python
-* Java Selenium
+* Selenium WebDriver
+* Python
+* Java
+* PyTest
+* TestNG
 * API Testing
 * Manual Testing
-* Test Automation Frameworks
+* Automation Framework Development
+* Git & GitHub
