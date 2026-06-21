@@ -177,7 +177,7 @@ Example:
 screenshots/
 ├── login_success.png
 └── event_page.png
-|__test_failur.png
+└── test_failur.png
 ```
 
 ---
